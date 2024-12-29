@@ -1,21 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+*{
+  font-family: 'Itim', sans-serif;
+}
+body{
+  background-color: rgba(234, 234, 234, 0.608);
+}
+li,.logo{
+  transition: .2s ease;
+}
+a{
+  /* animation: movetext 2s ease infinite; */
+  transition: .2s ease;
+  font-size: 20px;
+}
+li:hover, .logo:hover , a:hover{
+  cursor: pointer;
+  opacity: .5;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+.regis {
+
+  text-align: center;
+  max-width: 80%; /* ลดความกว้างเพื่อให้เหมาะกับหน้าจอขนาดเล็ก */
+  margin: 0 auto;
+  padding: rem 1rem; /* ใช้ค่าที่เหมาะสมเพื่อความยืดหยุ่น */
+  margin-top: 3rem;
+  h1 {
+    font-size: 2rem; /* ปรับขนาด font ให้เล็กลงในหน้าจอเล็ก */
+    font-weight: bold;
+    animation: movetext 2s ease infinite;
+  }
+
+  input {
+    display: block;
+    width: 100%; /* ให้ input ขยายเต็มพื้นที่ */
+    max-width: 400px; /* จำกัดความกว้างสูงสุด */
+    margin: 1rem auto;
+    padding: 0.5rem;
+    background-color: lightgray;
+    border: 1px solid #575757;
+    border-radius: 10px;
+    text-align: center;
+  }
+
+  button {
+    width: 100%; /* ให้ปุ่มขยายเต็มพื้นที่ */
+    max-width: 200px; /* จำกัดความกว้างสูงสุด */
+    margin: 1rem auto 0;
+    padding: 0.5rem;
+    border: 2px solid #333;
+    border-radius: 10px;
+    background-color: #90ee90; /* เปลี่ยนสีปุ่มให้เด่น */
+  }
+
+  button:hover {
+    animation: rescale .3s ease infinite;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+.text-blue-500:hover{
+  opacity: .5;
+}
+
+
+
+
+
+/* ----------------------------------------------- */
+
+@keyframes moveup{
+  0%{
+    transform: translateY(0px);
+    border: 2px solid blue;
+  }50%{
+    transform: translateY(5px);
+    border: 1px solid red;
+  }100%{
+    transform: translateY(0px);
+    border: 2px solid green;
+  }
+}
+
+@keyframes movetext{
+  0%{
+    transform: translateY(0px);
+    color: blue;
+  }50%{
+    transform: translateY(-5px);
+    color: red;
+  }100%{
+    transform: translateY(0px);
+    color: green;
+  }
+}
+
+@keyframes rescale{
+  0%{
+    /* transform: translateY(0px); */
+    transform: scale(1);
+    border: 2px solid blue;
+    /* color: blue; */
+  }50%{
+    transform: scale(1.1);
+    /* transform: translateY(-5px); */
+    border: 2px solid red;
+    /* color: red; */
+  }100%{
+    transform: scale(1);
+    /* transform: translateY(0px); */
+    border: 2px solid green;
+    /* color: green; */
+  }
 }
